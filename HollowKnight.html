@@ -10,6 +10,7 @@
       flex-direction: column;
       align-items: center;
       padding-top: 15vh;
+      padding-bottom: 10vh;
       margin: auto;
       position: relative;
       text-align: center;
@@ -21,6 +22,11 @@
       display: flex;
       text-align: center;
       align-items: center;
+      background: none;
+      border: none;
+      font-family: 'HKFont';
+      font-size: 1.1em;
+      color: rgb(199, 199, 199);
     }
 
     .buttonDiv img {
@@ -39,7 +45,8 @@
     }
 
     .buttonDiv img.active {
-      opacity: 1 !important;
+      opacity: 0 !important;
+      transition: opacity ease-in-out 1.5s;
     }
 
     .flipImg {
@@ -82,35 +89,35 @@
  </div>
 
  <div class="mainText">
-    <div onclick="glowFunction(event)" class="buttonDiv">
+    <button onclick="glowFunction(event)" class="buttonDiv">
     <img class="flipImg" src="HollowKnightArrow.png">
     <p>START GAME</p>
     <img src="HollowKnightArrow.png">
-    </div>
+    </button>
     
-    <div onclick="glowFunction(event)" class="buttonDiv">
+    <button onclick="glowFunction(event)" class="buttonDiv">
     <img class="flipImg" src="HollowKnightArrow.png">
     <p>OPTIONS</p>
     <img src="HollowKnightArrow.png">
-    </div>
+    </button>
 
-    <div onclick="glowFunction(event)" class="buttonDiv">
+    <button onclick="glowFunction(event)" class="buttonDiv">
     <img class="flipImg" src="HollowKnightArrow.png">
     <p>ACHIEVEMENTS</p>
     <img src="HollowKnightArrow.png">
-    </div>
+    </button>
 
-    <div onclick="glowFunction(event)" class="buttonDiv">
+    <button onclick="glowFunction(event)" class="buttonDiv">
     <img class="flipImg" src="HollowKnightArrow.png">
     <p>EXTRAS</p>
     <img src="HollowKnightArrow.png">
-    </div>
+    </button>
 
-    <div onclick="glowFunction(event)" class="buttonDiv">
+    <button onclick="glowFunction(event)" class="buttonDiv">
     <img class="flipImg" src="HollowKnightArrow.png">
     <p>QUIT GAME</p>
     <img src="HollowKnightArrow.png">
-    </div>
+    </button>
   </div>
 
   <script src="HollowKnight.js">

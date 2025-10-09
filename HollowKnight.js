@@ -40,7 +40,8 @@ function glowFunction(event) {
 
       setTimeout(() => {
           imgArrow.classList.remove('active');
-      }, 500);
+          window.location.href="JaxPenta.html";
+      }, 800);
   })
 
   if (textElement) {
