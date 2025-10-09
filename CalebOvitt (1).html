@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+.beautifulDiv {
+    padding-top: 80px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    width: 500px;
+    height: 200px;
+    margin: auto;
+    text-align: center;
+    color: rgb(45, 20, 42);
+    background-color: rgb(238, 207, 255);
+}
+
+@keyframes HollowKnight {
+  0%   {transform: translateX(0);}
+  100% {transform: translateX(calc(50vw - 100px));}
+}
+
+.hollowknight {
+    animation: HollowKnight 3s ease-out 1;
+    animation-fill-mode: forwards;
+}
+
+
+</style>
+<head>
+
+    <title>Hollow Knight is so Beautiful!</title>
+
+</head>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<body>
+
+    <div class="beautifulDiv">
+    <p>Hollow Knight</p>
+    <p>how awesome.</p>
+    </div>
+
+    <div class="hollowknight">
+      <img src="HollowKnight.png" alt="Hollow Knight" width="200px" height="150px">
+    </div>
+</body>
+<script>
+  const hknight = document.querySelector('.hollowknight');
+  hknight.addEventListener('animationend', () => {
+    confetti({
+        particleCount: 300,
+        spread: 100,
+        origin: { y: 0.6 }
+    });
+  });
+
+</script>
