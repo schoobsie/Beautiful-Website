@@ -6,7 +6,9 @@
 <style>
 
     .mainText {
-      border: 1px solid blue;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding-top: 15vh;
       margin: auto;
       position: relative;
@@ -14,35 +16,50 @@
       font-family: 'HKFont';
       color: rgb(199, 199, 199);
     }
+
     .buttonDiv {
       display: flex;
       text-align: center;
+      align-items: center;
     }
-    .mainText p:hover{
+
+    .buttonDiv img {
+      width: 20px;
+      height: 25px;
+      padding: 10px;
+      opacity: 0;
+    }
+
+    .buttonDiv:hover img {
+      opacity: 1;
+      transition: opacity .2s ease-out;
+      -moz-transition: opacity .2s ease-out;
+      -webkit-transition: opacity .2s ease-out;
+      -o-transition: opacity .2s ease-out;
+    }
+
+    .buttonDiv.active img {
+      opacity: 1 !important;
+    }
+
+    .flipImg {
+      transform: scaleX(-1);
     }
   
-    /* .mainText p::before {
-    content: ">";
-    position: relative;
-    font-family: 'HKArrowFont';
-    left: -10px;
-    } */
-
-    /* .mainText p::after {
-    content: "<";
-    position: relative;
-    font-family: 'HKArrowFont';
-    right: -10px;
-    } */
     .titleText {
-    padding-top: 5vh;
     margin: auto;
     text-align: center;
     font-family: 'HKFont';
     font-size: 5em;
     color: rgb(199, 199, 199);
+    
     }
-body {
+
+    .titleText p {
+    margin: 0;
+    }
+
+    body {
             background-color: rgb(22, 20, 52);
         }
 
@@ -52,7 +69,6 @@ body {
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
-
     <title>Hollow Knight</title>
 
 </head>
@@ -60,56 +76,44 @@ body {
 <body>
 
  <div class="titleText">
+    <img src="HollowKnightTopThing.png" style="width: 600px;">
     <p>HOLLOW KNIGHT</p>
+    <img src="HollowKnightBottomThing.png" style="width: 800px;">
  </div>
 
  <div class="mainText">
-    <div class="buttonDiv">
-    <img src="HollowKnightArrow.png">
+    <div onclick="glowFunction(event)" class="buttonDiv">
+    <img class="flipImg" src="HollowKnightArrow.png">
     <p>START GAME</p>
+    <img src="HollowKnightArrow.png">
     </div>
+    
+    <div onclick="glowFunction(event)" class="buttonDiv">
+    <img class="flipImg" src="HollowKnightArrow.png">
     <p>OPTIONS</p>
-    <p>ACHIEVEMENTS</p>
-    <p>EXTRAS</p>
-    <p>QUIT GAME</p>
+    <img src="HollowKnightArrow.png">
     </div>
 
+    <div onclick="glowFunction(event)" class="buttonDiv">
+    <img class="flipImg" src="HollowKnightArrow.png">
+    <p>ACHIEVEMENTS</p>
+    <img src="HollowKnightArrow.png">
+    </div>
 
+    <div onclick="glowFunction(event)" class="buttonDiv">
+    <img class="flipImg" src="HollowKnightArrow.png">
+    <p>EXTRAS</p>
+    <img src="HollowKnightArrow.png">
+    </div>
+
+    <div onclick="glowFunction(event)" class="buttonDiv">
+    <img class="flipImg" src="HollowKnightArrow.png">
+    <p>QUIT GAME</p>
+    <img src="HollowKnightArrow.png">
+    </div>
+  </div>
+
+  <script src="HollowKnight.js">
+  </script>
 </body>
 
-<script>
-
-var duration = 45 * 1000;
-var animationEnd = Date.now() + duration;
-var skew = 1;
-
-function randomInRange(min, max) {
-  return Math.random() * (max - min) + min;
-}
-
-(function frame() {
-  var timeLeft = animationEnd - Date.now();
-  var ticks = Math.max(200, 500 * (timeLeft / duration));
-  skew = Math.max(0.8, skew - 0.001);
-
-  confetti({
-    particleCount: Math.round(Math.random()),
-    startVelocity: 0,
-    ticks: ticks,
-    origin: {
-      x: Math.random(),
-      y: (Math.random() * skew * 0.5) - 0.2
-    },
-    colors: ['#858585'],
-    shapes: ['circle'],
-    gravity: randomInRange(0.1, 0.2),
-    scalar: randomInRange(0.4, 1),
-    drift: randomInRange(0.1, 0.6)
-  });
-
-  if (timeLeft > 0) {
-    setTimeout(() => requestAnimationFrame(frame), 50);
-  }
-}());
-
-</script>
