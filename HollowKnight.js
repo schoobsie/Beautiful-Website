@@ -33,18 +33,22 @@ function randomInRange(min, max) {
 }());
 
 function glowFunction(event) {
+    const imgArrows = event.currentTarget.querySelectorAll('img');
     const textElement = event.currentTarget.querySelector('p');
+    imgArrows.forEach((imgArrow) => {
+      imgArrow.classList.add('active');
 
-    textElement.classList.add('active');
+      setTimeout(() => {
+          imgArrow.classList.remove('active');
+      }, 500);
+  })
 
-
-    if (textElement) {
-        textElement.style.transition = 'text-shadow 0.7s ease-in-out';
-        textElement.style.textShadow = '0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.9)';
+  if (textElement) {
+    textElement.style.transition = 'text-shadow 0.7s ease-in-out';
+    textElement.style.textShadow = '0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.9)';
 
     setTimeout(() => {
-        textElement.style.textShadow = 'none';
-        textElement.classList.remove('active');
-    }, 500);
+          textElement.style.textShadow = 'none';
+      }, 500);
   }
 }
