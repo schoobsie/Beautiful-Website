@@ -19,7 +19,7 @@ function randomInRange(min, max) {
   var ticks = Math.max(200, 500 * (timeLeft / duration));
   skew = Math.max(0.8, skew - 0.001);
 
-  myCnfetti({
+  myConfetti({
     particleCount: Math.round(Math.random()),
     startVelocity: 0,
     ticks: ticks,
