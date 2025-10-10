@@ -36,12 +36,21 @@
       opacity: 0;
     }
 
+    #wholeScreen.active {
+      opacity: 0 !important;
+      transition: opacity ease-in-out 1s;
+    }
+
+    #wholeScreen {
+      transition: opacity ease-in-out 1.5s;
+    }
+
     .buttonDiv:hover img {
       opacity: 1;
-      transition: opacity .2s ease-out;
-      -moz-transition: opacity .2s ease-out;
-      -webkit-transition: opacity .2s ease-out;
-      -o-transition: opacity .2s ease-out;
+      transition: opacity .3s ease-out;
+      -moz-transition: opacity .3s ease-out;
+      -webkit-transition: opacity .3s ease-out;
+      -o-transition: opacity .3s ease-out;
     }
 
     .buttonDiv img.active {
@@ -81,7 +90,7 @@
 </head>
 
 <body>
-
+<div id ="wholeScreen">
  <div class="titleText">
     <img src="HollowKnightTopThing.png" style="width: 600px;">
     <p>HOLLOW KNIGHT</p>
@@ -118,6 +127,7 @@
     <p>QUIT GAME</p>
     <img src="HollowKnightArrow.png">
     </button>
+  </div>
   </div>
 
   <script src="HollowKnight.js">

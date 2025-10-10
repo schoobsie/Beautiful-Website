@@ -3,6 +3,10 @@ var duration = 60 * 1000;
 var animationEnd = Date.now() + duration;
 var skew = 1;
 
+const MyPromise = require('some-promise-lib');
+const confetti = require('canvas-confetti');
+confetti.Promise = MyPromise;
+
 function randomInRange(min, max) {
   return Math.random() * (max - min) + min;
 }
@@ -35,14 +39,27 @@ function randomInRange(min, max) {
 function glowFunction(event) {
     const imgArrows = event.currentTarget.querySelectorAll('img');
     const textElement = event.currentTarget.querySelector('p');
+    const wholeScreen = document.getElementById("wholeScreen");
+
     imgArrows.forEach((imgArrow) => {
       imgArrow.classList.add('active');
 
       setTimeout(() => {
-          imgArrow.classList.remove('active');
-          window.location.href="JaxPenta.html";
-      }, 800);
+        wholeScreen.classList.add('active');
+      },500);
+
+      setTimeout(() => {
+        confetti.reset();
+      },1300);
+
+
+      setTimeout(() => {
+        imgArrow.classList.remove('active');          
+        window.location.href="SaveMenu.html";
+      },1500);
   })
+
+    
 
   if (textElement) {
     textElement.style.transition = 'text-shadow 0.7s ease-in-out';
