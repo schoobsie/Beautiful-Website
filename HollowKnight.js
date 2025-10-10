@@ -3,9 +3,12 @@ var duration = 60 * 1000;
 var animationEnd = Date.now() + duration;
 var skew = 1;
 
-const MyPromise = require('some-promise-lib');
-const confetti = require('canvas-confetti');
-confetti.Promise = MyPromise;
+
+const myCanvas = document.getElementById('my-canvas');
+const myConfetti = confetti.create(myCanvas, {
+  resize: true,
+  useWorker: true
+});
 
 function randomInRange(min, max) {
   return Math.random() * (max - min) + min;
@@ -16,7 +19,7 @@ function randomInRange(min, max) {
   var ticks = Math.max(200, 500 * (timeLeft / duration));
   skew = Math.max(0.8, skew - 0.001);
 
-  confetti({
+  myCnfetti({
     particleCount: Math.round(Math.random()),
     startVelocity: 0,
     ticks: ticks,
