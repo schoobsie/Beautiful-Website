@@ -1,8 +1,7 @@
 
-var duration = 60 * 1000;
+var duration = 6000 * 1000;
 var animationEnd = Date.now() + duration;
 var skew = 1;
-
 
 const myCanvas = document.getElementById('my-canvas');
 const myConfetti = confetti.create(myCanvas, {
@@ -20,18 +19,20 @@ function randomInRange(min, max) {
   skew = Math.max(0.8, skew - 0.001);
 
   myConfetti({
-    particleCount: Math.round(Math.random()),
+    particleCount: 1,
     startVelocity: 0,
+    flat: true,
     ticks: ticks,
     origin: {
       x: Math.random(),
-      y: (Math.random() * skew) - 0.2
+      y: Math.random()
     },
-    colors: ['#858585'],
+    colors: [ '#3d475e28', '#4a587799', '#364157ff'],
     shapes: ['circle'],
-    gravity: randomInRange(0.1, 0.2),
-    scalar: randomInRange(0.4, 1),
-    drift: randomInRange(0.1, 0.6)
+    gravity: randomInRange(-0.1, -0.2),
+    scalar: randomInRange(0.5, 1.5),
+    zIndex: 9,
+    drift: randomInRange(1, 5)
   });
 
   if (timeLeft > 0) {
@@ -52,8 +53,8 @@ function glowFunction(event) {
       },500);
 
       setTimeout(() => {
-        confetti.reset();
-      },1300);
+        myCanvas.classList.add('active')
+      },800);
 
 
       setTimeout(() => {
