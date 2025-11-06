@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+    <link rel="stylesheet" href="HollowKnight.CSS">
+
+<style>
+
+    canvas {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+    }
+
+
+
+    .mainText {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 3vh;
+      padding-bottom: 5vh;
+      margin: auto;
+      position: relative;
+      text-align: center;
+      font-family: 'HKFont';
+      color: rgb(199, 199, 199);
+    }
+
+    .buttonDiv {
+      display: flex;
+      text-align: center;
+      align-items: center;
+      background: none;
+      border: none;
+      font-weight: 600;
+      font-family: 'HKFont';
+      font-size: 2em;
+      color: rgb(199, 199, 199);
+    }
+
+    .buttonDiv img {
+      width: 35px;
+      height: 35px;
+      padding: 10px;
+      opacity: 0;
+    }
+  
+    .buttonDiv p {
+      margin: 10px;
+    }
+
+    #wholeScreen.active {
+      opacity: 0 !important;
+      transition: opacity ease-in-out 1s;
+    }
+
+    #wholeScreen {
+      opacity: 0;
+      transition: opacity 3s ease-in-out;
+      z-index: 10;
+      position: relative;
+    }
+
+    body.loaded #wholeScreen {
+    opacity: 1;
+    }
+
+    #my-canvas.active {
+      opacity: 0 !important;
+    }
+
+    #my-canvas {
+      filter: blur(2px) brightness(1.4);
+      opacity: 0.9;
+      transition: opacity ease-in-out 0.5s;
+      z-index: 9;
+    }
+
+    .buttonDiv:hover img {
+      opacity: 1;
+      transition: opacity .3s ease-out;
+      -moz-transition: opacity .3s ease-out;
+      -webkit-transition: opacity .3s ease-out;
+      -o-transition: opacity .3s ease-out;
+    }
+
+    .buttonDiv img.active {
+      opacity: 0 !important;
+      transition: opacity ease-in-out 1.5s;
+    }
+
+    .flipImg {
+      transform: scaleX(-1);
+    }
+  
+    .titleText {
+    padding-top: 5vh;
+    margin: auto;
+    text-align: center;
+    font-family: 'HKFont';
+    font-size: 6em;
+    color: rgb(199, 199, 199);  
+    }
+
+    .titleText p {
+      transform: scaleY(1.75);
+      font-weight: 600;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .titleText p {
+    margin: 0;
+    }
+
+    body {
+      background-color: rgb(22, 20, 52);
+        }
+
+</style>
+
+<head>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <script>
+      window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+      });
+    </script>
+
+    <title>Hollow Knight</title>
+
+</head>
+
+<body>
+
+  <canvas id="my-canvas">
+  </canvas>
+    
+<div id ="wholeScreen">
+ <div class="titleText">
+    <img src="HollowKnightTopThing.png" style="width: 600px;">
+    <p>HOLLOW KNIGHT</p>
+    <img src="HollowKnightBottomThing.png" style="width: 900px;">
+ </div>
+
+ <div class="mainText">
+    <button onclick="glowFunction(event)" class="buttonDiv">
+    <img class="flipImg" src="HollowKnightArrow.png">
+    <p>Start Game</p>
+    <img src="HollowKnightArrow.png">
+    </button>
+    
+    <button onclick="glowFunction(event)" class="buttonDiv">
+    <img class="flipImg" src="HollowKnightArrow.png">
+    <p>Options</p>
+    <img src="HollowKnightArrow.png">
+    </button>
+
+    <button onclick="glowFunction(event)" class="buttonDiv">
+    <img class="flipImg" src="HollowKnightArrow.png">
+    <p>Achievements</p>
+    <img src="HollowKnightArrow.png">
+    </button>
+
+    <button onclick="glowFunction(event)" class="buttonDiv">
+    <img class="flipImg" src="HollowKnightArrow.png">
+    <p>Extras</p>
+    <img src="HollowKnightArrow.png">
+    </button>
+
+    <button onclick="glowFunction(event)" class="buttonDiv">
+    <img class="flipImg" src="HollowKnightArrow.png">
+    <p>Quit Game</p>
+    <img src="HollowKnightArrow.png">
+    </button>
+  </div>
+  </div>
+
+  <script src="HollowKnight.js">
+  </script>
+</body>
+

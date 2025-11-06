@@ -28,6 +28,8 @@
     padding-right: 25px;
     padding-bottom: 0px;
     border: solid blue 1px;
+    margin: 0;
+    font-weight: 600;
     }
     
     .titleText img {
@@ -58,6 +60,8 @@
       font-size: 1.7em;
       background-color: transparent;
       color: rgb(199, 199, 199);
+      font-weight: 600;
+      overflow: hidden;
     }
 
     .buttonDiv img {
@@ -65,6 +69,17 @@
       height: 35px;
       padding: 10px;
       opacity: 0;
+    }
+
+    .buttonDiv .bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;      
+    height: 100%;     
+    z-index: 0;       
+    opacity: 0.25;    
+    pointer-events: none; 
     }
 
      .buttonDiv p {
@@ -125,15 +140,19 @@
  </div>
  <div class="mainText">
   <button class="buttonDiv">
+    <img class="bg-img" src="HollowKnightSaveThing.png" alt="">
   <p>1.</p>
   </button>
   <button class="buttonDiv">
+    <img class="bg-img" src="HollowKnightSaveThing.png" alt="">
   <p>2.</p>
   </button>
   <button class="buttonDiv">
+    <img class="bg-img" src="HollowKnightSaveThing.png" alt="">
   <p>3.</p>
   </button>
   <button class="buttonDiv">
+    <img class="bg-img" src="HollowKnightSaveThing.png" alt="">
   <p>4.</p>
   </button>
  </div>

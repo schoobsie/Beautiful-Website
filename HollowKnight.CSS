@@ -18,3 +18,21 @@
     background-size: cover;
     z-index: 2;
 }
+
+body {
+  opacity: 0;
+  transition: opacity 2s ease-in;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+#wholeScreen {
+  opacity: 0;
+  transition: opacity 2s ease-in;
+}
+
+body.loaded #wholeScreen {
+  opacity: 1;
+}
