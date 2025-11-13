@@ -40,7 +40,8 @@ function randomInRange(min, max) {
   }
 }());
 
-function glowFunction(event) {
+function glowFunction(event, urlstring) {
+    console.log(urlstring);
     const imgArrows = event.currentTarget.querySelectorAll('img');
     const textElement = event.currentTarget.querySelector('p');
     const wholeScreen = document.getElementById("wholeScreen");
@@ -49,6 +50,12 @@ function glowFunction(event) {
       imgArrow.classList.add('active');
 
       setTimeout(() => {
+        imgArrow.classList.remove('active');                
+      },1500);
+
+    })
+
+    setTimeout(() => {
         wholeScreen.classList.add('active');
       },500);
 
@@ -56,14 +63,10 @@ function glowFunction(event) {
         myCanvas.classList.add('active')
       },800);
 
-
-      setTimeout(() => {
-        imgArrow.classList.remove('active');          
-        window.location.href="SaveMenu.html";
+      setTimeout(() => { 
+        window.location.href=urlstring;                
       },1500);
-  })
 
-    
 
   if (textElement) {
     textElement.style.transition = 'text-shadow 0.7s ease-in-out';

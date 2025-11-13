@@ -4,17 +4,44 @@
   <meta charset="UTF-8">
   <title>Hollow Knight</title>
   <link rel="stylesheet" href="HollowKnight.CSS">
+
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
+  <script>
+      window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+      });
+    </script>
+  
   <style>
     #my-canvas {
       filter: blur(2px) brightness(1.4);
       position: fixed;
       width: 100%;
       height: 100%;
-      opacity: 0;                        
+      opacity: 0.9;                        
       transition: opacity 3s ease-in;    
       z-index: 9;
+    }
+
+    #my-canvas.active {
+      opacity: 0 !important;
+    }
+
+    body.loaded #my-canvas {
+      opacity: 1;
+    }
+
+    #wholeScreen {
+      opacity: 0;
+      transition: opacity 3s ease-in-out;
+      z-index: 10;
+      position: relative;
+    }
+
+    #wholeScreen.active {
+    opacity: 0 !important;
+    transition: opacity ease-in-out 1s;
     }
 
     .titleText {
@@ -28,32 +55,18 @@
     .titleText p {
     padding-right: 25px;
     padding-bottom: 0px;
-    border: solid blue 1px;
     margin: 0;
     font-weight: 600;
     }
     
     .titleText img {
-      border: solid blue 1px;
-      padding: 0px;
-    }
-
-    body.loaded #my-canvas {
-      opacity: 1;
-    }
-
-    #wholeScreen {
-      opacity: 1;
-      transition: opacity 3s ease-in-out;
-      z-index: 10;
-      position: relative;
+    padding: 0px;
     }
 
     .buttonDiv {
       align-items: left;
       padding-top: 0vh;
       padding-bottom: 2vh;
-      border: solid blue 1px;
       margin-left: 30vh;
       margin-right: 50vh; 
       text-align: left;
@@ -63,21 +76,11 @@
       color: rgb(199, 199, 199);
       font-weight: 600;
       overflow: hidden;
+      border: none;
+      transition: all 0.2s ease-in-out;
     }
 
-    .buttonDiv ::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;      
-    height: 100%;     
-    z-index: 0;       
-    opacity: 1;    
-    pointer-events: none; 
-    }
-
-     .buttonDiv p {
-      background-image: url("HollowKnightSaveThing.png");
+    .buttonDiv p {
       background-size: cover;
       background-position: center; 
       background-repeat: no-repeat;
@@ -92,6 +95,32 @@
       padding-bottom: 15px;
     }
 
+    .buttonDiv img.active {
+      opacity: 0 !important;
+      transition: opacity ease-in-out 1.5s;
+    }
+
+    .buttonDiv ::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;      
+      height: 100%;     
+      z-index: 0;       
+      opacity: 1;    
+      pointer-events: none; 
+    }
+
+    .buttonDiv span {
+      font-size: 0.7em;
+      margin-left: 20px;
+    }
+
+    .buttonDiv:hover {
+      text-shadow:  0 0 25px white, 0 0 50px white;
+      filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.452));
+    }
+
     .buttonDiv:hover img {
       opacity: 1;
       transition: opacity .3s ease-out;
@@ -100,10 +129,21 @@
       -o-transition: opacity .3s ease-out;
     }
 
-    .buttonDiv img.active {
-      opacity: 0 !important;
-      transition: opacity ease-in-out 1.5s;
+    .buttonDiv:nth-child(1) p {
+      background-image: url("HollowKnightSaveThingJax.png");
     }
+
+    .buttonDiv:nth-child(2) p {
+      background-image: url("HollowKnightSaveThing.png");
+    }
+
+    .buttonDiv:nth-child(3) p {
+      background-image: url("HollowKnightSaveThing.png");
+    }
+
+    .buttonDiv:nth-child(4) p {
+      background-image: url("HollowKnightSaveThing.png");
+    } 
 
     .mainText {
       display: flex;
@@ -111,7 +151,6 @@
       padding-left: 10vh;
       align-items: left;
       padding-bottom: 10vh;
-      border: solid blue 1px;
       margin: auto;
       position: relative;
       text-align: left;
@@ -122,21 +161,16 @@
 
     .maintext p {
       padding-top: 15px;
-      border: solid blue 1px;
     }
+
   </style>
 </head>
 
 <body>
-  <canvas id="my-canvas"></canvas>
 
-  <script>
-    window.addEventListener("load", () => {
-      document.body.classList.add("loaded");
-    });
-  </script>
+  <div id="wholeScreen">
+    <canvas id="my-canvas"></canvas>
 
-  <script src="HollowKnight.js"></script>
 
   <div id ="wholeScreen">
  <div class="titleText">
@@ -144,20 +178,22 @@
     <img src="HollowKnightUnderSaveThing.png" style="width:700px;">
  </div>
  <div class="mainText">
-  <button class="buttonDiv">
-  <p>1.</p>
+  <button onclick="glowFunction(event, 'JaxPenta.html')" class="buttonDiv">
+  <p>1. <span> Jax Penta Kill </span></p>
   </button>
-  <button class="buttonDiv">
+  <button onclick="glowFunction(event)" class="buttonDiv">
   <p>2.</p>
   </button>
-  <button class="buttonDiv">
+  <button onclick="glowFunction(event)" class="buttonDiv">
   <p>3.</p>
   </button>
-  <button class="buttonDiv">
+  <button onclick="glowFunction(event)" class="buttonDiv">
   <p>4.</p>
   </button>
  </div>
  </div>
+
+ <script src="HollowKnight.js"></script>
 
 </body>
 </html>
