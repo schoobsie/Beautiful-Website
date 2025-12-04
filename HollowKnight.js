@@ -77,3 +77,31 @@ function glowFunction(event, urlstring) {
       }, 500);
   }
 }
+
+let resources = 0;
+let producers = 0;
+let producerCost = 10;
+
+// manual click for money
+function gather() {
+  resources++;
+}
+
+// buys auto producor
+function buyProducer() {
+  if (resources >= producerCost) {
+    resources -= producerCost;
+    producers++;
+    producerCost = Math.floor(producerCost * 1.5);
+  }
+}
+
+// my idle loop
+setInterval(() => {
+  resources += producers;
+  
+  // update html ui
+  document.getElementById("resourceCount").innerText = resources;
+  document.getElementById("producerCount").innerText = producers;
+  document.getElementById("producerCost").innerText = producerCost;
+}, 100);
